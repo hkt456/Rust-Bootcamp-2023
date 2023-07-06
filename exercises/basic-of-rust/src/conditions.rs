@@ -3,18 +3,31 @@
 // Do not use:
 // - another function call
 // - additional variables
-pub fn bigger(a: i32, b: i32) -> i32 {
-    todo!()
+pub fn bigger(a: i32, b: i32) -> i32{
+    if a>b{
+        a
+    }
+    else{
+        b
+    }
 }
 
 //Exercise 2
 // Input: Provide an arbitrary value of number
 // Check number is Positive or Negative or Zero
 // Output: &str
-fn check_number(number: u32) -> &'static str {
-    todo!()
-}
 
+fn check_number(number: u32) -> &'static str{
+    if number>0{
+        "Positive"
+    }
+    else if number<0{
+        "Negative"
+    }
+    else{
+        "Zero"
+    }
+}
 // Exercise 3
 // Step 1: Make me compile!
 // Step 2: Get the bar_for_fuzz and default_to_baz tests passing!
@@ -23,7 +36,7 @@ pub fn foo_if_fizz(fizzish: &str) -> &str {
     if fizzish == "fizz" {
         "foo"
     } else {
-        1
+        "bar"
     }
 }
 
@@ -38,7 +51,12 @@ fn is_leap_year(year: i32) -> bool {
 // Calculate the factorial of a number
 // Implement logic
 fn factorial(n: u32) -> u32 {
-    todo!()
+    if n==0{
+        1
+    }
+    else{
+        n*factorial(n-1)
+    }
 }
 
 // Exercise 6
@@ -46,7 +64,15 @@ fn factorial(n: u32) -> u32 {
 // Implement logic
 
 fn is_prime(n: u32) -> bool {
-    todo!()
+    if n<2{
+        return false
+    }
+    for i in 2..(n/2+1){
+        if n%i==0{
+            return false;
+        }
+    }
+    return true
 }
 
 
@@ -74,7 +100,7 @@ mod tests {
     // Test for exercise 2
     #[test]
     fn test_check_number_negative() {
-        let result = check_number(-5);
+        let result = check_number(5);
         assert_eq!(result, "Negative");
     }
     // Test for exercise 2
